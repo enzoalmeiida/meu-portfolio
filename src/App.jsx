@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter, Routes, Route, NavLink } from 'react-router-dom';
 import Typewriter from 'typewriter-effect';
 import { FaGithub, FaLinkedin, FaAws, FaMicrosoft, FaCode, FaHome, FaUser, FaProjectDiagram, FaEnvelope, FaPython, FaJava, FaDatabase, FaReact, FaHtml5, FaCss3Alt, FaJs, FaDocker, FaLinux, FaGit, FaWindows, FaFirefox, FaTerminal, FaWhatsapp, FaServer, FaWordpress, FaLayerGroup, FaUsers } from 'react-icons/fa';
-import { SiDocker, SiKubernetes, SiGitlab, SiTerraform, SiAnsible, SiPrometheus, SiGrafana, SiNewrelic, SiTailwindcss, SiElementor, SiZoho } from 'react-icons/si';
+import { SiDocker, SiKubernetes, SiGitlab, SiTerraform, SiAnsible, SiNewrelic, SiTailwindcss, SiElementor, SiZoho } from 'react-icons/si';
 import { VscTerminalBash } from "react-icons/vsc";
 import { SiGnubash } from "react-icons/si";
 
@@ -353,6 +353,10 @@ function AboutPage({ language, setLanguage }) {
                   <span className="text-xs font-mono">HTML5</span>
                 </div>
                 <div className="flex flex-col items-center text-center">
+                  <FaCss3Alt size={40} className="mb-3 text-glow-orange" />
+                  <span className="text-xs font-mono">CSS3</span>
+                </div>
+                <div className="flex flex-col items-center text-center">
                   <FaWordpress size={40} className="mb-3 text-glow-orange" />
                   <span className="text-xs font-mono">WordPress</span>
                 </div>
@@ -423,12 +427,8 @@ function AboutPage({ language, setLanguage }) {
                   <span className="text-xs font-mono">GitHub</span>
                 </div>
                 <div className="flex flex-col items-center text-center">
-                  <SiPrometheus size={40} className="mb-3 text-glow-orange" />
-                  <span className="text-xs font-mono">Prometheus</span>
-                </div>
-                <div className="flex flex-col items-center text-center">
-                  <SiGrafana size={40} className="mb-3 text-glow-orange" />
-                  <span className="text-xs font-mono">Grafana</span>
+                  <FaLinux size={40} className="mb-3 text-glow-orange" />
+                  <span className="text-xs font-mono">Linux</span>
                 </div>
                 <div className="flex flex-col items-center text-center">
                   <SiZoho size={40} className="mb-3 text-glow-orange" />
