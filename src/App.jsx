@@ -1,8 +1,8 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route, NavLink } from 'react-router-dom';
 import Typewriter from 'typewriter-effect';
-import { FaGithub, FaLinkedin, FaAws, FaMicrosoft, FaCode, FaHome, FaUser, FaProjectDiagram, FaEnvelope, FaPython, FaJava, FaDatabase, FaReact, FaHtml5, FaCss3Alt, FaJs, FaDocker, FaLinux, FaGit, FaWindows, FaFirefox, FaTerminal } from 'react-icons/fa';
-import { SiDocker, SiKubernetes, SiGitlab, SiTerraform, SiAnsible, SiPrometheus, SiGrafana, SiNewrelic } from 'react-icons/si';
+import { FaGithub, FaLinkedin, FaAws, FaMicrosoft, FaCode, FaHome, FaUser, FaProjectDiagram, FaEnvelope, FaPython, FaJava, FaDatabase, FaReact, FaHtml5, FaCss3Alt, FaJs, FaDocker, FaLinux, FaGit, FaWindows, FaFirefox, FaTerminal, FaWhatsapp, FaServer, FaWordpress, FaLayerGroup, FaUsers } from 'react-icons/fa';
+import { SiDocker, SiKubernetes, SiGitlab, SiTerraform, SiAnsible, SiPrometheus, SiGrafana, SiNewrelic, SiTailwindcss, SiElementor, SiZoho } from 'react-icons/si';
 import { VscTerminalBash } from "react-icons/vsc";
 import { SiGnubash } from "react-icons/si";
 /* ===== PAGE COMPONENTS ===== */
@@ -78,106 +78,39 @@ function HomePage() {
         </div>
 
         <div className="terminal-box">
-          <div className="text-sm mb-8">
-            <span className="text-glow-green">$</span> habilidades --sre
+          <div className="text-sm mb-6">
+            <span className="text-glow-green">$</span> cat destaques.txt
           </div>
-          
-          <h2 className="text-2xl font-bold mb-8 text-glow">Minhas Habilidades</h2>
 
-          {/* Plataformas Cloud */}
-          <div className="mb-8">
-            <div className="text-sm text-glow-orange font-mono mb-3">[ Plataformas Cloud ]</div>
-            <div className="border border-gray-800 p-6 bg-gray-950/40 shadow-inner">
-              <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
-                <div className="flex flex-col items-center text-center">
-                  <FaAws size={40} className="mb-3 text-glow-orange" />
-                  <span className="text-xs font-mono">AWS</span>
-                </div>
-                <div className="flex flex-col items-center text-center">
-                  <FaMicrosoft size={40} className="mb-3 text-glow-orange" />
-                  <span className="text-xs font-mono">Azure</span>
-                </div>
+          <h2 className="text-2xl font-bold mb-8 text-glow">Destaques & Metas</h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {/* Card 1: Certificações (AWS Certified Cloud Practitioner) */}
+            <div className="border border-cyan-600 p-6 bg-blue-900/20 hover:bg-blue-900/40 transition-all">
+              <div className="flex items-center gap-3 mb-4">
+                <FaAws size={32} className="text-glow-orange" />
+                <h3 className="text-glow-orange font-mono">[ AWS Certified Cloud Practitioner ]</h3>
               </div>
+              <div className="mb-3">
+                <span className="text-xs font-mono text-emerald-400 animate-pulse">● Status: Preparação Reta Final</span>
+              </div>
+              <p className="text-sm font-mono text-gray-300">
+                Estudando arquitetura, segurança e serviços core da nuvem AWS.
+              </p>
             </div>
-          </div>
 
-          {/* DevOps & CI/CD */}
-          <div className="mb-8">
-            <div className="text-sm text-glow-orange font-mono mb-3">[ DevOps & CI/CD ]</div>
-            <div className="border border-gray-800 p-6 bg-gray-950/40 shadow-inner">
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-                <div className="flex flex-col items-center text-center">
-                  <SiDocker size={40} className="mb-3 text-glow-orange" />
-                  <span className="text-xs font-mono">Docker</span>
-                </div>
-                <div className="flex flex-col items-center text-center">
-                  <SiKubernetes size={40} className="mb-3 text-glow-orange" />
-                  <span className="text-xs font-mono">Kubernetes</span>
-                </div>
-                <div className="flex flex-col items-center text-center">
-                  <FaGithub size={40} className="mb-3 text-glow-orange" />
-                  <span className="text-xs font-mono">GitHub Actions</span>
-                </div>
-                <div className="flex flex-col items-center text-center">
-                  <SiGitlab size={40} className="mb-3 text-glow-orange" />
-                  <span className="text-xs font-mono">GitLab CI/CD</span>
-                </div>
+            {/* Card 2: Projeto Relevante (Infra as Code - Blendon) */}
+            <div className="border border-cyan-600 p-6 bg-blue-900/20 hover:bg-blue-900/40 transition-all">
+              <div className="flex items-center gap-3 mb-4">
+                <SiTerraform size={32} className="text-glow-orange" />
+                <h3 className="text-glow-orange font-mono">[ Infra as Code - Blendon ]</h3>
               </div>
-            </div>
-          </div>
-
-          {/* Infra as Code (IaC) */}
-          <div className="mb-8">
-            <div className="text-sm text-glow-orange font-mono mb-3">[ Infra as Code ]</div>
-            <div className="border border-gray-800 p-6 bg-gray-950/40 shadow-inner">
-              <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
-                <div className="flex flex-col items-center text-center">
-                  <SiTerraform size={40} className="mb-3 text-glow-orange" />
-                  <span className="text-xs font-mono">Terraform</span>
-                </div>
-                <div className="flex flex-col items-center text-center">
-                  <SiAnsible size={40} className="mb-3 text-glow-orange" />
-                  <span className="text-xs font-mono">Ansible</span>
-                </div>
+              <div className="mb-3">
+                <span className="text-xs font-mono text-emerald-400">● Status: Em Produção</span>
               </div>
-            </div>
-          </div>
-
-          {/* Linguagens & Scripting */}
-          <div className="mb-8">
-            <div className="text-sm text-glow-orange font-mono mb-3">[ Linguagens & Scripting ]</div>
-            <div className="border border-gray-800 p-6 bg-gray-950/40 shadow-inner">
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-                <div className="flex flex-col items-center text-center">
-                  <FaPython size={40} className="mb-3 text-glow-orange" />
-                  <span className="text-xs font-mono">Python</span>
-                </div>
-                <div className="flex flex-col items-center text-center">
-                  <SiGnubash size={40} className="mb-3 text-glow-orange" />
-                  <span className="text-xs font-mono">Bash</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Monitoramento (SRE) */}
-          <div>
-            <div className="text-sm text-glow-orange font-mono mb-3">[ Monitoramento & SRE ]</div>
-            <div className="border border-gray-800 p-6 bg-gray-950/40 shadow-inner">
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-                <div className="flex flex-col items-center text-center">
-                  <SiPrometheus size={40} className="mb-3 text-glow-orange" />
-                  <span className="text-xs font-mono">Prometheus</span>
-                </div>
-                <div className="flex flex-col items-center text-center">
-                  <SiGrafana size={40} className="mb-3 text-glow-orange" />
-                  <span className="text-xs font-mono">Grafana</span>
-                </div>
-                <div className="flex flex-col items-center text-center">
-                  <SiNewrelic size={40} className="mb-3 text-glow-orange" />
-                  <span className="text-xs font-mono">New Relic</span>
-                </div>
-              </div>
+              <p className="text-sm font-mono text-gray-300">
+                Automação de infraestrutura e orquestração de recursos utilizando Python e Terraform.
+              </p>
             </div>
           </div>
         </div>
@@ -224,26 +157,26 @@ function AboutPage() {
             <span className="text-glow-green">$</span> skills --all
           </div>
 
-          {/* Back-end Section */}
+          {/* Back-end & Scripting Section */}
           <div className="mb-8">
-            <div className="text-sm text-glow-orange font-bold mb-4">Back-End</div>
-            <div className="border border-cyan-600 p-6 bg-blue-900/20 rounded">
-              <div className="flex items-center gap-8 flex-wrap">
-                <div className="flex flex-col items-center">
-                  <FaPython size={32} className="mb-2 text-glow-orange" />
-                  <span className="text-xs">Python</span>
+            <div className="text-sm text-glow-orange font-mono mb-3">[ Back-end & Scripting ]</div>
+            <div className="border border-gray-800 p-6 bg-gray-950/40 shadow-inner">
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <div className="flex flex-col items-center text-center">
+                  <FaPython size={40} className="mb-3 text-glow-orange" />
+                  <span className="text-xs font-mono">Python<br />(Automação)</span>
                 </div>
-                <div className="flex flex-col items-center">
-                  <FaJava size={32} className="mb-2 text-glow-orange" />
-                  <span className="text-xs">Java</span>
+                <div className="flex flex-col items-center text-center">
+                  <VscTerminalBash size={40} className="mb-3 text-glow-orange" />
+                  <span className="text-xs font-mono">Bash/Shell</span>
                 </div>
-                <div className="flex flex-col items-center">
-                  <FaDatabase size={32} className="mb-2 text-glow-orange" />
-                  <span className="text-xs">MySQL</span>
+                <div className="flex flex-col items-center text-center">
+                  <FaJava size={40} className="mb-3 text-glow-orange" />
+                  <span className="text-xs font-mono">Java</span>
                 </div>
-                <div className="flex flex-col items-center">
-                  <FaTerminal size={32} className="mb-2 text-glow-orange" />
-                  <span className="text-xs">Bash</span>
+                <div className="flex flex-col items-center text-center">
+                  <FaDatabase size={40} className="mb-3 text-glow-orange" />
+                  <span className="text-xs font-mono">MySQL</span>
                 </div>
               </div>
             </div>
@@ -251,28 +184,36 @@ function AboutPage() {
 
           {/* Front-end Section */}
           <div className="mb-8">
-            <div className="text-sm text-glow-orange font-bold mb-4">Front-End</div>
-            <div className="border border-cyan-600 p-6 bg-blue-900/20 rounded">
-              <div className="flex items-center gap-8 flex-wrap">
-                <div className="flex flex-col items-center">
-                  <FaReact size={32} className="mb-2 text-glow-orange" />
-                  <span className="text-xs">React.js</span>
+            <div className="text-sm text-glow-orange font-mono mb-3">[ Front-end ]</div>
+            <div className="border border-gray-800 p-6 bg-gray-950/40 shadow-inner">
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <div className="flex flex-col items-center text-center">
+                  <FaReact size={40} className="mb-3 text-glow-orange" />
+                  <span className="text-xs font-mono">React.js</span>
                 </div>
-                <div className="flex flex-col items-center">
-                  <FaHtml5 size={32} className="mb-2 text-glow-orange" />
-                  <span className="text-xs">HTML5</span>
+                <div className="flex flex-col items-center text-center">
+                  <SiTailwindcss size={40} className="mb-3 text-glow-orange" />
+                  <span className="text-xs font-mono">Tailwind CSS</span>
                 </div>
-                <div className="flex flex-col items-center">
-                  <FaCss3Alt size={32} className="mb-2 text-glow-orange" />
-                  <span className="text-xs">CSS3</span>
+                <div className="flex flex-col items-center text-center">
+                  <FaJs size={40} className="mb-3 text-glow-orange" />
+                  <span className="text-xs font-mono">JavaScript</span>
                 </div>
-                <div className="flex flex-col items-center">
-                  <FaJs size={32} className="mb-2 text-glow-orange" />
-                  <span className="text-xs">JavaScript</span>
+                <div className="flex flex-col items-center text-center">
+                  <FaHtml5 size={40} className="mb-3 text-glow-orange" />
+                  <span className="text-xs font-mono">HTML5</span>
                 </div>
-                <div className="flex flex-col items-center">
-                  <span className="text-2xl mb-2 text-glow-orange">🌬️</span>
-                  <span className="text-xs">Tailwind</span>
+                <div className="flex flex-col items-center text-center">
+                  <FaWordpress size={40} className="mb-3 text-glow-orange" />
+                  <span className="text-xs font-mono">WordPress</span>
+                </div>
+                <div className="flex flex-col items-center text-center">
+                  <SiElementor size={40} className="mb-3 text-glow-orange" />
+                  <span className="text-xs font-mono">Elementor</span>
+                </div>
+                <div className="flex flex-col items-center text-center">
+                  <FaLayerGroup size={40} className="mb-3 text-glow-orange" />
+                  <span className="text-xs font-mono">Oxygen Builder</span>
                 </div>
               </div>
             </div>
@@ -280,57 +221,73 @@ function AboutPage() {
 
           {/* DevOps & Cloud Section */}
           <div className="mb-8">
-            <div className="text-sm text-glow-orange font-bold mb-4">DevOps & Cloud</div>
-            <div className="border border-cyan-600 p-6 bg-blue-900/20 rounded">
-              <div className="flex items-center gap-8 flex-wrap">
-                <div className="flex flex-col items-center">
-                  <FaAws size={32} className="mb-2 text-glow-orange" />
-                  <span className="text-xs">AWS</span>
+            <div className="text-sm text-glow-orange font-mono mb-3">[ DevOps & Cloud ]</div>
+            <div className="border border-gray-800 p-6 bg-gray-950/40 shadow-inner">
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <div className="flex flex-col items-center text-center">
+                  <FaAws size={40} className="mb-3 text-glow-orange" />
+                  <span className="text-xs font-mono">AWS</span>
                 </div>
-                <div className="flex flex-col items-center">
-                  <FaMicrosoft size={32} className="mb-2 text-glow-orange" />
-                  <span className="text-xs">Azure</span>
+                <div className="flex flex-col items-center text-center">
+                  <FaMicrosoft size={40} className="mb-3 text-glow-orange" />
+                  <span className="text-xs font-mono">Azure</span>
                 </div>
-                <div className="flex flex-col items-center">
-                  <FaDocker size={32} className="mb-2 text-glow-orange" />
-                  <span className="text-xs">Docker</span>
+                <div className="flex flex-col items-center text-center">
+                  <SiDocker size={40} className="mb-3 text-glow-orange" />
+                  <span className="text-xs font-mono">Docker</span>
                 </div>
-                <div className="flex flex-col items-center">
-                  <FaGit size={32} className="mb-2 text-glow-orange" />
-                  <span className="text-xs">Terraform</span>
+                <div className="flex flex-col items-center text-center">
+                  <SiKubernetes size={40} className="mb-3 text-glow-orange" />
+                  <span className="text-xs font-mono">Kubernetes</span>
                 </div>
-                <div className="flex flex-col items-center">
-                  <FaLinux size={32} className="mb-2 text-glow-orange" />
-                  <span className="text-xs">Linux</span>
+                <div className="flex flex-col items-center text-center">
+                  <SiTerraform size={40} className="mb-3 text-glow-orange" />
+                  <span className="text-xs font-mono">Terraform</span>
+                </div>
+                <div className="flex flex-col items-center text-center">
+                  <SiAnsible size={40} className="mb-3 text-glow-orange" />
+                  <span className="text-xs font-mono">Ansible</span>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Ferramentas & Outros Section */}
+          {/* Ferramentas & Infra Corporativa Section */}
           <div>
-            <div className="text-sm text-glow-orange font-bold mb-4">Ferramentas & Outros</div>
-            <div className="border border-cyan-600 p-6 bg-blue-900/20 rounded">
-              <div className="flex items-center gap-8 flex-wrap">
-                <div className="flex flex-col items-center">
-                  <FaGit size={32} className="mb-2 text-glow-orange" />
-                  <span className="text-xs">Git</span>
+            <div className="text-sm text-glow-orange font-mono mb-3">[ Ferramentas & Infra Corporativa ]</div>
+            <div className="border border-gray-800 p-6 bg-gray-950/40 shadow-inner">
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <div className="flex flex-col items-center text-center">
+                  <FaWindows size={40} className="mb-3 text-glow-orange" />
+                  <span className="text-xs font-mono">Windows Server</span>
                 </div>
-                <div className="flex flex-col items-center">
-                  <FaGithub size={32} className="mb-2 text-glow-orange" />
-                  <span className="text-xs">GitHub</span>
+                <div className="flex flex-col items-center text-center">
+                  <FaServer size={40} className="mb-3 text-glow-orange" />
+                  <span className="text-xs font-mono">Redes</span>
                 </div>
-                <div className="flex flex-col items-center">
-                  <FaWindows size={32} className="mb-2 text-glow-orange" />
-                  <span className="text-xs">Windows 10</span>
+                <div className="flex flex-col items-center text-center">
+                  <FaGit size={40} className="mb-3 text-glow-orange" />
+                  <span className="text-xs font-mono">Git</span>
                 </div>
-                <div className="flex flex-col items-center">
-                  <FaFirefox size={32} className="mb-2 text-glow-orange" />
-                  <span className="text-xs">Firefox</span>
+                <div className="flex flex-col items-center text-center">
+                  <FaGithub size={40} className="mb-3 text-glow-orange" />
+                  <span className="text-xs font-mono">GitHub</span>
                 </div>
-                <div className="flex flex-col items-center">
-                  <FaCode size={32} className="mb-2 text-glow-orange" />
-                  <span className="text-xs">VS Code</span>
+                <div className="flex flex-col items-center text-center">
+                  <SiPrometheus size={40} className="mb-3 text-glow-orange" />
+                  <span className="text-xs font-mono">Prometheus</span>
+                </div>
+                <div className="flex flex-col items-center text-center">
+                  <SiGrafana size={40} className="mb-3 text-glow-orange" />
+                  <span className="text-xs font-mono">Grafana</span>
+                </div>
+                <div className="flex flex-col items-center text-center">
+                  <SiZoho size={40} className="mb-3 text-glow-orange" />
+                  <span className="text-xs font-mono">Zoho</span>
+                </div>
+                <div className="flex flex-col items-center text-center">
+                  <FaUsers size={40} className="mb-3 text-glow-orange" />
+                  <span className="text-xs font-mono">MS Teams</span>
                 </div>
               </div>
             </div>
@@ -343,6 +300,12 @@ function AboutPage() {
 
 function ProjectsPage() {
   const projects = [
+    {
+      title: 'Portfolio CRT Terminal',
+      description: 'Website pessoal desenvolvido com React.js e Tailwind CSS, simulando a interface de um monitor CRT antigo. Focado em performance, design responsivo e estética retrô-futurista.',
+      tech: 'React | Tailwind CSS | Vite | React-Icons',
+      github: 'https://github.com/enzoalmeiida/meu-portfolio',
+    },
     {
       title: 'Blendon Automation',
       description: 'Scripts em Python para orquestração de recursos em nuvem e automação de infraestrutura na plataforma Blendon.',
@@ -418,23 +381,62 @@ function ContactPage() {
           <div className="text-lg mb-8 text-glow">
             &gt;&gt;&gt; Get in Touch &lt;&lt;&lt;
           </div>
-          <div className="text-sm mb-8">
-            Sempre aberto a novas oportunidades, projetos interessantes e conversas sobre tecnologia.
+          
+          {/* Professional Bio - Monospaced Terminal Style */}
+          <div className="text-sm mb-8 font-mono text-cyan-300 leading-relaxed">
+            <p>
+              Engenheiro de Software em formação pela FIAP, focado em DevOps,
+            </p>
+            <p>
+              SRE e Cloud Computing. Atuando com automação e infraestrutura
+            </p>
+            <p>
+              na Blendon.
+            </p>
           </div>
-          <div className="flex justify-center gap-6">
+          
+          {/* Contact Buttons - Terminal Style Grid */}
+          <div className="flex justify-center gap-6 flex-wrap">
+            {/* GitHub Button */}
             <a 
               href="https://github.com/enzoalmeiida"
               target="_blank"
               rel="noreferrer"
-              className="terminal-btn"
+              className="terminal-btn inline-flex items-center gap-2 hover:text-glow-orange transition-all"
             >
+              <FaGithub size={18} />
               [ GITHUB ]
             </a>
+            
+            {/* LinkedIn Button */}
             <a 
-              href="mailto:contact@example.com"
-              className="terminal-btn"
+              href="https://www.linkedin.com/in/enzo-almeida-19a2522a5/"
+              target="_blank"
+              rel="noreferrer"
+              className="terminal-btn inline-flex items-center gap-2 hover:text-glow-orange transition-all"
             >
+              <FaLinkedin size={18} />
+              [ LINKEDIN ]
+            </a>
+            
+            {/* Email Button */}
+            <a 
+              href="mailto:enzoalmeida.ramos@gmail.com"
+              className="terminal-btn inline-flex items-center gap-2 hover:text-glow-orange transition-all"
+            >
+              <FaEnvelope size={18} />
               [ EMAIL ]
+            </a>
+            
+            {/* WhatsApp Button */}
+            <a 
+              href="https://wa.me/5511976269340"
+              target="_blank"
+              rel="noreferrer"
+              className="terminal-btn inline-flex items-center gap-2 hover:text-glow-orange transition-all"
+            >
+              <FaWhatsapp size={18} />
+              [ WHATSAPP ]
             </a>
           </div>
         </div>
