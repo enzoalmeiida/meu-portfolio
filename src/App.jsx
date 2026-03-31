@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route, NavLink } from 'react-router-dom';
 import Typewriter from 'typewriter-effect';
-import { FaGithub, FaLinkedin, FaAws, FaMicrosoft, FaCode, FaHome, FaUser, FaProjectDiagram, FaEnvelope, FaPython, FaJava, FaDatabase, FaReact, FaHtml5, FaCss3Alt, FaJs, FaDocker, FaLinux, FaGit, FaWindows, FaFirefox, FaTerminal, FaWhatsapp, FaServer, FaWordpress, FaLayerGroup, FaUsers } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaAws, FaMicrosoft, FaCode, FaHome, FaUser, FaProjectDiagram, FaEnvelope, FaPython, FaJava, FaDatabase, FaReact, FaHtml5, FaCss3Alt, FaJs, FaDocker, FaLinux, FaGit, FaWindows, FaFirefox, FaTerminal, FaWhatsapp, FaServer, FaWordpress, FaLayerGroup, FaUsers, FaBuilding, FaCheck, FaShieldAlt, FaTachometerAlt } from 'react-icons/fa';
 import { SiDocker, SiKubernetes, SiGitlab, SiTerraform, SiAnsible, SiNewrelic, SiTailwindcss, SiElementor, SiZoho } from 'react-icons/si';
 import { VscTerminalBash } from "react-icons/vsc";
 import { SiGnubash } from "react-icons/si";
@@ -54,7 +54,16 @@ const translations = {
       backend: '[ Back-end & Scripting ]',
       frontend: '[ Front-end ]',
       devops: '[ DevOps & Cloud ]',
-      tools: '[ Ferramentas & Infra Corporativa ]'
+      tools: '[ Ferramentas & Infra Corporativa ]',
+      experienceCmd: 'cat nambbu_job_description.log',
+      experienceTitle: 'Experiência Profissional',
+      nambbPeriod: 'Maio/2025 – Presente',
+      nambbRole: 'Estagiário de TI / Infraestrutura',
+      nambbAct1: 'Desenvolvimento Front-end: Manutenção de sites em WordPress utilizando Oxygen Builder e Elementor.',
+      nambbAct2: 'Gestão de Infraestrutura: Administração de servidores e recursos em nuvem da empresa.',
+      nambbAct3: 'Redes e Conectividade: Monitoramento e manutenção da internet e rede interna.',
+      nambbAct4: 'Segurança e Domínios: Configuração de certificados SSL, zonas de DNS, rotinas de backup e protocolos de segurança.',
+      nambbAct5: 'Otimização: Suporte técnico especializado e otimização de performance (Web Vitals) de websites.'
     },
     // ProjectsPage
     projects: {
@@ -133,7 +142,16 @@ const translations = {
       backend: '[ Back-end & Scripting ]',
       frontend: '[ Front-end ]',
       devops: '[ DevOps & Cloud ]',
-      tools: '[ Corporate Tools & Infrastructure ]'
+      tools: '[ Corporate Tools & Infrastructure ]',
+      experienceCmd: 'cat nambbu_job_description.log',
+      experienceTitle: 'Professional Experience',
+      nambbPeriod: 'May/2023 – Present',
+      nambbRole: 'IT / Infrastructure Intern',
+      nambbAct1: 'Front-end Development: Website maintenance on WordPress using Oxygen Builder and Elementor.',
+      nambbAct2: 'Infrastructure Management: Administration of company servers and cloud resources.',
+      nambbAct3: 'Networks & Connectivity: Internet and internal network monitoring and maintenance.',
+      nambbAct4: 'Security & Domains: SSL certificates, DNS zones, backup routines, and security protocols configuration.',
+      nambbAct5: 'Optimization: Specialized technical support and website performance optimization (Web Vitals).'
     },
     // ProjectsPage
     projects: {
@@ -301,6 +319,51 @@ function AboutPage({ language, setLanguage }) {
           </div>
         </div>
 
+        {/* Experience Section */}
+        <div className="terminal-box mb-12">
+          <div className="text-sm mb-6">
+            <span className="text-glow-green">$</span> {t.about.experienceCmd}
+          </div>
+
+          <h2 className="text-2xl font-bold mb-8 text-glow">{t.about.experienceTitle}</h2>
+
+          <div className="border border-cyan-600 p-6 bg-blue-900/20">
+            <div className="flex items-center gap-3 mb-4">
+              <FaBuilding size={32} className="text-glow-orange" />
+              <h3 className="text-lg font-bold text-glow-orange font-mono">Nambbu</h3>
+            </div>
+            
+            <div className="mb-6">
+              <span className="text-sm text-glow-orange font-mono">{t.about.nambbPeriod}</span>
+              <div className="text-sm text-gray-400 mt-1">{t.about.nambbRole}</div>
+            </div>
+
+            {/* Responsibilities with Icons */}
+            <div className="space-y-3 text-sm text-gray-300">
+              <div className="flex gap-3 items-start">
+                <FaCode size={18} className="text-glow-orange mt-1 flex-shrink-0" />
+                <span>{t.about.nambbAct1}</span>
+              </div>
+              <div className="flex gap-3 items-start">
+                <FaServer size={18} className="text-glow-orange mt-1 flex-shrink-0" />
+                <span>{t.about.nambbAct2}</span>
+              </div>
+              <div className="flex gap-3 items-start">
+                <FaGit size={18} className="text-glow-orange mt-1 flex-shrink-0" />
+                <span>{t.about.nambbAct3}</span>
+              </div>
+              <div className="flex gap-3 items-start">
+                <FaShieldAlt size={18} className="text-glow-orange mt-1 flex-shrink-0" />
+                <span>{t.about.nambbAct4}</span>
+              </div>
+              <div className="flex gap-3 items-start">
+                <FaTachometerAlt size={18} className="text-glow-orange mt-1 flex-shrink-0" />
+                <span>{t.about.nambbAct5}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <div className="terminal-box">
           <div className="text-sm mb-8">
             <span className="text-glow-green">$</span> {t.about.skillsCmd}
@@ -442,6 +505,8 @@ function AboutPage({ language, setLanguage }) {
             </div>
           </div>
         </div>
+
+
       </div>
     </section>
   );
