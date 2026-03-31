@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route, NavLink } from 'react-router-dom';
 import Typewriter from 'typewriter-effect';
-import { FaGithub, FaLinkedin, FaAws, FaMicrosoft, FaCode, FaHome, FaUser, FaProjectDiagram, FaEnvelope, FaPython, FaJava, FaDatabase, FaReact, FaHtml5, FaCss3Alt, FaJs, FaDocker, FaLinux, FaGit, FaWindows, FaFirefox, FaTerminal, FaWhatsapp, FaServer, FaWordpress, FaLayerGroup, FaUsers, FaBuilding, FaCheck, FaShieldAlt, FaTachometerAlt } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaAws, FaMicrosoft, FaCode, FaHome, FaUser, FaProjectDiagram, FaEnvelope, FaPython, FaJava, FaDatabase, FaReact, FaHtml5, FaCss3Alt, FaJs, FaDocker, FaLinux, FaGit, FaWindows, FaFirefox, FaTerminal, FaWhatsapp, FaServer, FaWordpress, FaLayerGroup, FaUsers, FaBuilding, FaCheck, FaShieldAlt, FaTachometerAlt, FaFilePdf } from 'react-icons/fa';
 import { SiDocker, SiKubernetes, SiGitlab, SiTerraform, SiAnsible, SiNewrelic, SiTailwindcss, SiElementor, SiZoho } from 'react-icons/si';
 import { VscTerminalBash } from "react-icons/vsc";
 import { SiGnubash } from "react-icons/si";
@@ -70,6 +70,9 @@ const translations = {
       title: 'Meus Projetos',
       cmd: 'ls -la /projects',
       viewCode: '[ VIEW CODE ]',
+      viewPresentation: '[ VER APRESENTAÇÃO (PDF) ]',
+      personal: '[ Pessoal ]',
+      academic: '[ Acadêmico ]',
       portfolioTitle: 'Portfolio CRT Terminal',
       portfolioDesc: 'Website pessoal desenvolvido com React.js e Tailwind CSS, simulando a interface de um monitor CRT antigo. Focado em performance, design responsivo e estética retrô-futurista.',
       portfolioTech: 'React | Tailwind CSS | Vite | React-Icons',
@@ -81,7 +84,10 @@ const translations = {
       awsTech: 'Terraform | AWS | CI/CD',
       cicdTitle: 'DevOps Pipeline CI/CD',
       cicdDesc: 'Implementação completa de pipeline CI/CD utilizando GitHub Actions e containerização com Docker para deploy automatizado.',
-      cicdTech: 'GitHub Actions | Docker | Linux'
+      cicdTech: 'GitHub Actions | Docker | Linux',
+      fiapCaseTitle: 'Estudo de Caso: Otimização de Infraestrutura em Nuvem',
+      fiapCaseDesc: 'Pesquisa acadêmica realizada na FIAP sobre estratégias de otimização de infraestrutura em nuvem pública. Apresenta análise comparativa entre provedores e recomendações para empresas em transição digital.',
+      fiapCaseTech: 'AWS | Azure | Análise Comparativa | Estudo de Caso'
     },
     // ContactPage
     contact: {
@@ -118,7 +124,7 @@ const translations = {
       age: '[ 19 years old | São Paulo, Brazil ]',
       whoami: 'whoami',
       bio1: 'Software Engineering undergraduate at FIAP with focus on DevOps/SRE.',
-      bio2: 'Currently IT Intern at Blendon, working with infrastructure automation and Cloud Computing. My goal is to become a DevOps/SRE specialist for the banking sector.',
+      bio2: 'Currently IT Intern at Nambbu, working with infrastructure automation and Cloud Computing. My goal is to become a DevOps/SRE specialist for the banking sector.',
       bio3: 'Focused on certifications: AWS Cloud Practitioner and Microsoft AZ-900.',
       connect: 'connect',
       highlights: 'Highlights & Goals',
@@ -158,6 +164,9 @@ const translations = {
       title: 'My Projects',
       cmd: 'ls -la /projects',
       viewCode: '[ VIEW CODE ]',
+      viewPresentation: '[ VIEW PRESENTATION (PDF) ]',
+      personal: '[ Personal ]',
+      academic: '[ Academic ]',
       portfolioTitle: 'Portfolio CRT Terminal',
       portfolioDesc: 'Personal website developed with React.js and Tailwind CSS, simulating the interface of an old CRT monitor. Focused on performance, responsive design, and retro-futuristic aesthetics.',
       portfolioTech: 'React | Tailwind CSS | Vite | React-Icons',
@@ -169,7 +178,10 @@ const translations = {
       awsTech: 'Terraform | AWS | CI/CD',
       cicdTitle: 'DevOps Pipeline CI/CD',
       cicdDesc: 'Complete CI/CD pipeline implementation using GitHub Actions and Docker containerization for automated deployment.',
-      cicdTech: 'GitHub Actions | Docker | Linux'
+      cicdTech: 'GitHub Actions | Docker | Linux',
+      fiapCaseTitle: 'Case Study: Cloud Infrastructure Optimization',
+      fiapCaseDesc: 'Academic research conducted at FIAP on cloud infrastructure optimization strategies. Presents comparative analysis between providers and recommendations for companies in digital transition.',
+      fiapCaseTech: 'AWS | Azure | Comparative Analysis | Case Study'
     },
     // ContactPage
     contact: {
@@ -520,24 +532,45 @@ function ProjectsPage({ language, setLanguage }) {
       descKey: 'portfolioDesc',
       techKey: 'portfolioTech',
       github: 'https://github.com/enzoalmeiida/meu-portfolio',
+      category: 'personal',
+      image: 'https://via.placeholder.com/400x200/111111/4ade80?text=PORTFOLIO+CRT',
+      isPdf: false,
     },
     {
       titleKey: 'blendonTitle',
       descKey: 'blendonDesc',
       techKey: 'blendonTech',
       github: 'https://github.com/enzoalmeiida',
+      category: 'personal',
+      image: 'https://via.placeholder.com/400x200/111111/4ade80?text=BLENDON+AUTOMATION',
+      isPdf: false,
     },
     {
       titleKey: 'awsTitle',
       descKey: 'awsDesc',
       techKey: 'awsTech',
       github: 'https://github.com/enzoalmeiida',
+      category: 'personal',
+      image: 'https://via.placeholder.com/400x200/111111/4ade80?text=AWS+INFRASTRUCTURE',
+      isPdf: false,
     },
     {
       titleKey: 'cicdTitle',
       descKey: 'cicdDesc',
       techKey: 'cicdTech',
       github: 'https://github.com/enzoalmeiida',
+      category: 'personal',
+      image: 'https://via.placeholder.com/400x200/111111/4ade80?text=CI%2FCD+PIPELINE',
+      isPdf: false,
+    },
+    {
+      titleKey: 'fiapCaseTitle',
+      descKey: 'fiapCaseDesc',
+      techKey: 'fiapCaseTech',
+      github: '#',
+      category: 'academic',
+      image: 'https://via.placeholder.com/400x200/111111/4ade80?text=FIAP+CASE+STUDY',
+      isPdf: true,
     }
   ];
 
@@ -556,9 +589,24 @@ function ProjectsPage({ language, setLanguage }) {
           <div className="space-y-8">
             {projects.map((project, idx) => (
               <div key={idx} className="border border-cyan-600 p-6 bg-blue-900/20 hover:bg-blue-900/40 transition-all">
+                {/* Project Cover Image */}
+                <img
+                  src={project.image}
+                  alt={t.projects[project.titleKey]}
+                  className="w-full h-48 object-cover border border-gray-800 grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-300 mb-4"
+                />
+
                 <div className="text-sm mb-2">
                   <span className="text-glow-orange">[{idx + 1}]</span>
                 </div>
+
+                {/* Category Badge */}
+                <div className="mb-3">
+                  <span className="text-xs font-mono bg-gray-900 border border-gray-700 text-glow-green px-2 py-1">
+                    {project.category === 'personal' ? t.projects.personal : t.projects.academic}
+                  </span>
+                </div>
+
                 <div className="text-lg font-bold mb-3 text-glow">
                   &gt;&gt; {t.projects[project.titleKey]}
                 </div>
@@ -570,11 +618,21 @@ function ProjectsPage({ language, setLanguage }) {
                 </div>
                 <a 
                   href={project.github}
-                  target="_blank"
+                  target={project.isPdf ? "_blank" : "_blank"}
                   rel="noreferrer"
-                  className="terminal-btn inline-block text-sm"
+                  className="terminal-btn inline-flex items-center gap-2 text-sm"
                 >
-                  {t.projects.viewCode}
+                  {project.isPdf ? (
+                    <>
+                      <FaFilePdf size={16} />
+                      {t.projects.viewPresentation}
+                    </>
+                  ) : (
+                    <>
+                      <FaGithub size={16} />
+                      {t.projects.viewCode}
+                    </>
+                  )}
                 </a>
               </div>
             ))}
