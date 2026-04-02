@@ -1,16 +1,21 @@
-# React + Vite
+# meu-portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Rodar local (dev)
 
-Currently, two official plugins are available:
+1. `npm install`
+2. `npm run dev`
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Abra a URL que o Vite mostrar (normalmente `http://localhost:5173`).
 
-## React Compiler
+## Build / Preview (produção local)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+1. `npm run build`
+2. `npm run preview`
 
-## Expanding the ESLint configuration
+## Importante (erro de MIME com JSX)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Não abra o `index.html` diretamente (nem via Live Server) porque ele referencia `/src/main.jsx` e um servidor estático não transpila JSX, o que pode causar erro no browser como:
+
+`Failed to load module script: Expected a JavaScript-or-Wasm module script but the server responded with a MIME type of "text/jsx"`.
+
+Use sempre `npm run dev` (desenvolvimento) ou publique o conteúdo da pasta `dist/` (produção).
