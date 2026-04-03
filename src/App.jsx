@@ -1,9 +1,14 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route, NavLink } from 'react-router-dom';
 import Typewriter from 'typewriter-effect';
+import * as pdfjsLib from 'pdfjs-dist';
+import pdfWorkerSrc from 'pdfjs-dist/build/pdf.worker.min.mjs?url';
+import portfolioCover from './assets/hero.png';
 import { FaGithub, FaLinkedin, FaAws, FaMicrosoft, FaCode, FaEnvelope, FaPython, FaJava, FaDatabase, FaReact, FaHtml5, FaCss3Alt, FaJs, FaLinux, FaGit, FaWindows, FaWhatsapp, FaServer, FaWordpress, FaLayerGroup, FaUsers, FaBuilding, FaShieldAlt, FaTachometerAlt, FaFilePdf } from 'react-icons/fa';
 import { SiDocker, SiKubernetes, SiTerraform, SiAnsible, SiTailwindcss, SiElementor, SiZoho, SiFigma } from 'react-icons/si';
 import { VscTerminalBash } from 'react-icons/vsc';
+
+pdfjsLib.GlobalWorkerOptions.workerSrc = pdfWorkerSrc;
 
 /* ===== INTERNATIONALIZATION (i18n) ===== */
 const translations = {
@@ -75,8 +80,8 @@ const translations = {
       personal: 'Pessoal',
       academic: 'Acadêmico',
       portfolioTitle: 'Portfolio CRT Terminal',
-      portfolioDesc: 'Website pessoal desenvolvido com React.js e Tailwind CSS, simulando a interface de um monitor CRT antigo. Focado em performance, design responsivo e estética retrô-futurista.',
-      portfolioTech: 'React | Tailwind CSS | Vite | React-Icons',
+      portfolioDesc: 'Portfólio pessoal atualizado com interface inspirada em terminal CRT, navegação em múltiplas páginas e alternância de idioma (PT/EN). Projeto focado em experiência visual, responsividade e organização de conteúdo técnico e acadêmico.',
+      portfolioTech: 'React | Vite | React Router | i18n PT/EN | PDF Preview',
       nambbuTitle: 'Nambbu Automation',
       nambbuDesc: 'Scripts em Python para automação de infraestrutura, gestão de servidores críticos e monitoramento de ambientes cloud, alinhados à cultura DevOps.',
       nambbuTech: 'Python | Cloud | Terraform | Observability',
@@ -88,12 +93,33 @@ const translations = {
       cicdTech: 'GitHub Actions | Docker | Linux',
       fiapCaseTitle: 'Estudo de Caso: Otimização de Infraestrutura em Nuvem',
       fiapCaseDesc: 'Pesquisa acadêmica realizada na FIAP sobre estratégias de otimização de infraestrutura em nuvem pública. Apresenta análise comparativa entre provedores e recomendações para empresas em transição digital.',
-      fiapCaseTech: 'AWS | Azure | Análise Comparativa | Estudo de Caso'
+      fiapCaseTech: 'AWS | Azure | Análise Comparativa | Estudo de Caso',
+      formulaECaseTitle: 'Engajando os Fãs da Fórmula E',
+      formulaECaseDesc: 'Projeto acadêmico desenvolvido na FIAP para resolver a falta de engajamento dos fãs da Fórmula E. A solução propõe um site interativo como hub central da competição, com vídeos imersivos, classificações em tempo real, perfis de pilotos, quiz temático, clima de corrida e calendário com espaço social.',
+      formulaECaseTech: 'Engenharia de Software | UX/UI | Plataforma Interativa | Estratégia de Engajamento'
     },
     // ContactPage
     contact: {
       title: 'Contato',
-      subtitle: 'Aberto a oportunidades e projetos em SRE/DevOps.',
+      subtitle: 'Vamos conversar sobre oportunidades, projetos e colaborações em tecnologia.',
+      downloadCv: 'Baixar Curriculo',
+      messageTitle: 'Me envie uma mensagem! 👇',
+      messageSubtitle: 'Se preferir, me chame direto no WhatsApp ou LinkedIn. Respondo o mais rápido possível.',
+      name: 'Nome',
+      namePlaceholder: 'Digite seu nome',
+      emailLabel: 'E-mail',
+      emailPlaceholder: 'Digite seu e-mail',
+      message: 'Mensagem',
+      messagePlaceholder: 'Digite sua mensagem...',
+      send: 'Enviar',
+      socialTitle: 'Canais de Contato',
+      socialSubtitle: 'Conecte-se comigo pelos canais abaixo.',
+      availabilityTitle: 'Disponibilidade',
+      availability1: 'Projetos e vagas em DevOps/SRE',
+      availability2: 'Freelancer para sites e automações',
+      availability3: 'Parcerias acadêmicas e tecnológicas',
+      location: 'São Paulo, Brasil',
+      responseTime: 'Resposta média: até 24h',
       github: 'GitHub',
       linkedin: 'LinkedIn',
       email: 'E-mail',
@@ -168,8 +194,8 @@ const translations = {
       personal: 'Personal',
       academic: 'Academic',
       portfolioTitle: 'Portfolio CRT Terminal',
-      portfolioDesc: 'Personal website developed with React.js and Tailwind CSS, simulating the interface of an old CRT monitor. Focused on performance, responsive design, and retro-futuristic aesthetics.',
-      portfolioTech: 'React | Tailwind CSS | Vite | React-Icons',
+      portfolioDesc: 'Updated personal portfolio with a CRT terminal-inspired interface, multi-page navigation, and language switching (PT/EN). Built with focus on visual experience, responsiveness, and clear presentation of technical and academic work.',
+      portfolioTech: 'React | Vite | React Router | PT/EN i18n | PDF Preview',
       nambbuTitle: 'Nambbu Automation',
       nambbuDesc: 'Python automation for infrastructure, critical server operations, and cloud monitoring — aligned with DevOps culture.',
       nambbuTech: 'Python | Cloud | Terraform | Observability',
@@ -181,12 +207,33 @@ const translations = {
       cicdTech: 'GitHub Actions | Docker | Linux',
       fiapCaseTitle: 'Case Study: Cloud Infrastructure Optimization',
       fiapCaseDesc: 'Academic research conducted at FIAP on cloud infrastructure optimization strategies. Presents comparative analysis between providers and recommendations for companies in digital transition.',
-      fiapCaseTech: 'AWS | Azure | Comparative Analysis | Case Study'
+      fiapCaseTech: 'AWS | Azure | Comparative Analysis | Case Study',
+      formulaECaseTitle: 'Engaging Formula E Fans',
+      formulaECaseDesc: 'Academic project developed at FIAP to solve Formula E fan engagement challenges. The solution is an interactive website as the championship central hub, with immersive videos, real-time standings, driver profiles, thematic quiz, race weather updates, and an event calendar with social interaction.',
+      formulaECaseTech: 'Software Engineering | UX/UI | Interactive Platform | Engagement Strategy'
     },
     // ContactPage
     contact: {
       title: 'Contact',
-      subtitle: 'Open to opportunities and projects in SRE/DevOps.',
+      subtitle: 'Let\'s talk about opportunities, projects, and technology collaborations.',
+      downloadCv: 'Download Resume',
+      messageTitle: 'Send me a message! 👇',
+      messageSubtitle: 'If you prefer, reach me directly on WhatsApp or LinkedIn. I reply as quickly as possible.',
+      name: 'Name',
+      namePlaceholder: 'Type your name',
+      emailLabel: 'Email',
+      emailPlaceholder: 'Type your email',
+      message: 'Message',
+      messagePlaceholder: 'Type your message...',
+      send: 'Send',
+      socialTitle: 'Contact Channels',
+      socialSubtitle: 'Connect with me through the channels below.',
+      availabilityTitle: 'Availability',
+      availability1: 'DevOps/SRE projects and roles',
+      availability2: 'Freelance websites and automations',
+      availability3: 'Academic and technology partnerships',
+      location: 'Sao Paulo, Brazil',
+      responseTime: 'Average response: within 24h',
       github: 'GitHub',
       linkedin: 'LinkedIn',
       email: 'Email',
@@ -196,6 +243,64 @@ const translations = {
 };
 
 /* ===== PAGE COMPONENTS ===== */
+
+function PdfProjectCover({ file, title }) {
+  const [coverSrc, setCoverSrc] = React.useState('');
+
+  React.useEffect(() => {
+    let isMounted = true;
+
+    const renderCover = async () => {
+      try {
+        const loadingTask = pdfjsLib.getDocument(file);
+        const pdf = await loadingTask.promise;
+        const page = await pdf.getPage(1);
+
+        const baseViewport = page.getViewport({ scale: 1 });
+        const targetWidth = 1200;
+        const scale = targetWidth / baseViewport.width;
+        const viewport = page.getViewport({ scale });
+
+        const canvas = document.createElement('canvas');
+        const context = canvas.getContext('2d');
+        if (!context) return;
+
+        canvas.width = Math.floor(viewport.width);
+        canvas.height = Math.floor(viewport.height);
+
+        await page.render({ canvasContext: context, viewport }).promise;
+
+        if (isMounted) {
+          setCoverSrc(canvas.toDataURL('image/png'));
+        }
+      } catch {
+        if (isMounted) {
+          setCoverSrc('');
+        }
+      }
+    };
+
+    renderCover();
+
+    return () => {
+      isMounted = false;
+    };
+  }, [file]);
+
+  return (
+    <div className="w-full h-48 border border-subtle mb-4 overflow-hidden bg-black/40">
+      {coverSrc ? (
+        <img
+          src={coverSrc}
+          alt={`${title} preview`}
+          className="w-full h-48 object-cover"
+        />
+      ) : (
+        <div className="w-full h-full" />
+      )}
+    </div>
+  );
+}
 
 function HomePage({ language }) {
   const t = translations[language];
@@ -446,7 +551,7 @@ function ProjectsPage({ language }) {
       techKey: 'portfolioTech',
       github: 'https://github.com/enzoalmeiida/meu-portfolio',
       category: 'personal',
-      image: 'https://via.placeholder.com/400x200/111111/4ade80?text=PORTFOLIO+CRT',
+      image: portfolioCover,
       isPdf: false,
     },
     {
@@ -484,6 +589,15 @@ function ProjectsPage({ language }) {
       category: 'academic',
       image: 'https://via.placeholder.com/400x200/111111/4ade80?text=FIAP+CASE+STUDY',
       isPdf: true,
+    },
+    {
+      titleKey: 'formulaECaseTitle',
+      descKey: 'formulaECaseDesc',
+      techKey: 'formulaECaseTech',
+      github: '/engajando-fas-formula-e.pdf',
+      category: 'academic',
+      image: '/engajando-fas-formula-e.pdf',
+      isPdf: true,
     }
   ];
 
@@ -499,11 +613,15 @@ function ProjectsPage({ language }) {
           {projects.map((project, idx) => (
             <div key={idx} className="monitor-card p-6">
                 {/* Project Cover Image */}
-                <img
-                  src={project.image}
-                  alt={t.projects[project.titleKey]}
-                  className="w-full h-48 object-cover border border-subtle grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-300 mb-4"
-                />
+                {project.isPdf && project.github !== '#' ? (
+                  <PdfProjectCover file={project.github} title={t.projects[project.titleKey]} />
+                ) : project.image ? (
+                  <img
+                    src={project.image}
+                    alt={t.projects[project.titleKey]}
+                    className="w-full h-48 object-cover border border-subtle grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-300 mb-4"
+                  />
+                ) : null}
 
                 <div className="text-sm mb-2">
                   <span className="text-faint">#{idx + 1}</span>
@@ -553,6 +671,28 @@ function ProjectsPage({ language }) {
 
 function ContactPage({ language }) {
   const t = translations[language];
+  const [formData, setFormData] = React.useState({
+    name: '',
+    email: '',
+    message: '',
+  });
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    const subject = encodeURIComponent(`Contato Portfolio - ${formData.name || 'Visitante'}`);
+    const body = encodeURIComponent(
+      `Nome: ${formData.name}\nE-mail: ${formData.email}\n\nMensagem:\n${formData.message}`
+    );
+
+    window.location.href = `mailto:enzoalmeida.ramos@gmail.com?subject=${subject}&body=${body}`;
+  };
+
   return (
     <section className="px-6 md:px-10 py-16 md:py-24">
       <div className="max-w-6xl mx-auto">
@@ -562,46 +702,133 @@ function ContactPage({ language }) {
               <h1 className="text-3xl md:text-4xl font-semibold tracking-tight text-glow">{t.contact.title}</h1>
               <p className="mt-2 text-muted">{t.contact.subtitle}</p>
             </div>
-          </div>
 
-          <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             <a
-              href="https://github.com/enzoalmeiida"
-              target="_blank"
-              rel="noreferrer"
+              href="/curriculo-enzo-almeida.pdf"
+              download
               className="terminal-btn terminal-btn--solid inline-flex items-center justify-center gap-2"
             >
-              <FaGithub size={18} />
-              {t.contact.github}
+              <FaFilePdf size={18} />
+              {t.contact.downloadCv}
             </a>
+          </div>
 
-            <a
-              href="https://www.linkedin.com/in/enzo-almeida-19a2522a5/"
-              target="_blank"
-              rel="noreferrer"
-              className="terminal-btn inline-flex items-center justify-center gap-2"
-            >
-              <FaLinkedin size={18} />
-              {t.contact.linkedin}
-            </a>
+          <div className="mt-8 grid grid-cols-1 xl:grid-cols-2 gap-6 items-start">
+            <div className="terminal-surface p-6">
+              <h2 className="text-xl font-semibold text-glow mb-2">{t.contact.socialTitle}</h2>
+              <p className="text-sm text-muted mb-6">{t.contact.socialSubtitle}</p>
 
-            <a
-              href="mailto:enzoalmeida.ramos@gmail.com"
-              className="terminal-btn inline-flex items-center justify-center gap-2"
-            >
-              <FaEnvelope size={18} />
-              {t.contact.email}
-            </a>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <a
+                  href="https://github.com/enzoalmeiida"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="terminal-btn terminal-btn--solid inline-flex items-center justify-center gap-2"
+                >
+                  <FaGithub size={18} />
+                  {t.contact.github}
+                </a>
 
-            <a
-              href="https://wa.me/5511976269340"
-              target="_blank"
-              rel="noreferrer"
-              className="terminal-btn inline-flex items-center justify-center gap-2"
+                <a
+                  href="https://www.linkedin.com/in/enzo-almeida-19a2522a5/"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="terminal-btn inline-flex items-center justify-center gap-2"
+                >
+                  <FaLinkedin size={18} />
+                  {t.contact.linkedin}
+                </a>
+
+                <a
+                  href="mailto:enzoalmeida.ramos@gmail.com"
+                  className="terminal-btn inline-flex items-center justify-center gap-2"
+                >
+                  <FaEnvelope size={18} />
+                  {t.contact.email}
+                </a>
+
+                <a
+                  href="https://wa.me/5511976269340"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="terminal-btn inline-flex items-center justify-center gap-2"
+                >
+                  <FaWhatsapp size={18} />
+                  {t.contact.whatsapp}
+                </a>
+              </div>
+
+              <div className="mt-6 pt-6 border-t border-subtle">
+                <h3 className="text-base font-semibold text-glow mb-3">{t.contact.availabilityTitle}</h3>
+                <ul className="space-y-2 text-sm text-muted">
+                  <li>• {t.contact.availability1}</li>
+                  <li>• {t.contact.availability2}</li>
+                  <li>• {t.contact.availability3}</li>
+                </ul>
+
+                <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs text-faint">
+                  <div className="terminal-badge px-3 py-2">{t.contact.location}</div>
+                  <div className="terminal-badge px-3 py-2">{t.contact.responseTime}</div>
+                </div>
+              </div>
+            </div>
+
+            <form
+              onSubmit={handleSubmit}
+              className="p-5 sm:p-6 rounded-xl border border-subtle bg-[rgba(13,17,23,0.62)]"
             >
-              <FaWhatsapp size={18} />
-              {t.contact.whatsapp}
-            </a>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight text-glow mb-2">{t.contact.messageTitle}</h2>
+              <p className="text-sm text-muted mb-6">{t.contact.messageSubtitle}</p>
+
+              <label className="block text-base sm:text-lg font-medium text-glow mb-2" htmlFor="contact-name">
+                {t.contact.name}
+              </label>
+              <input
+                id="contact-name"
+                name="name"
+                type="text"
+                value={formData.name}
+                onChange={handleChange}
+                placeholder={t.contact.namePlaceholder}
+                className="w-full rounded-md border border-subtle bg-[rgba(13,17,23,0.7)] text-[var(--text-primary)] placeholder:text-[var(--text-faint)] px-4 py-3 mb-5 focus:outline-none focus:ring-2 focus:ring-[var(--border-cyan)]"
+                required
+              />
+
+              <label className="block text-base sm:text-lg font-medium text-glow mb-2" htmlFor="contact-email">
+                {t.contact.emailLabel}
+              </label>
+              <input
+                id="contact-email"
+                name="email"
+                type="email"
+                value={formData.email}
+                onChange={handleChange}
+                placeholder={t.contact.emailPlaceholder}
+                className="w-full rounded-md border border-subtle bg-[rgba(13,17,23,0.7)] text-[var(--text-primary)] placeholder:text-[var(--text-faint)] px-4 py-3 mb-5 focus:outline-none focus:ring-2 focus:ring-[var(--border-cyan)]"
+                required
+              />
+
+              <label className="block text-base sm:text-lg font-medium text-glow mb-2" htmlFor="contact-message">
+                {t.contact.message}
+              </label>
+              <textarea
+                id="contact-message"
+                name="message"
+                rows={6}
+                value={formData.message}
+                onChange={handleChange}
+                placeholder={t.contact.messagePlaceholder}
+                className="w-full rounded-md border border-subtle bg-[rgba(13,17,23,0.7)] text-[var(--text-primary)] placeholder:text-[var(--text-faint)] px-4 py-3 mb-5 resize-y min-h-[150px] focus:outline-none focus:ring-2 focus:ring-[var(--border-cyan)]"
+                required
+              />
+
+              <button
+                type="submit"
+                className="w-full rounded-md terminal-btn terminal-btn--solid text-[var(--text-cyan)] font-semibold text-lg sm:text-xl py-3 transition-colors"
+              >
+                {t.contact.send}
+              </button>
+            </form>
           </div>
         </div>
       </div>
