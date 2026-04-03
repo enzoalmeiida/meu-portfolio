@@ -96,7 +96,10 @@ const translations = {
       fiapCaseTech: 'AWS | Azure | Análise Comparativa | Estudo de Caso',
       formulaECaseTitle: 'Engajando os Fãs da Fórmula E',
       formulaECaseDesc: 'Projeto acadêmico desenvolvido na FIAP para resolver a falta de engajamento dos fãs da Fórmula E. A solução propõe um site interativo como hub central da competição, com vídeos imersivos, classificações em tempo real, perfis de pilotos, quiz temático, clima de corrida e calendário com espaço social.',
-      formulaECaseTech: 'Engenharia de Software | UX/UI | Plataforma Interativa | Estratégia de Engajamento'
+      formulaECaseTech: 'Engenharia de Software | UX/UI | Plataforma Interativa | Estratégia de Engajamento',
+      rfidCaseTitle: 'Transformando a Gestão de Estoque com Tecnologia RFID',
+      rfidCaseDesc: 'Projeto acadêmico desenvolvido com a equipe MADEV para reduzir erros e perdas causados por processos manuais de estoque. A solução propõe automação passiva com RFID, monitoramento em tempo real por leitores inteligentes e integração com SAP sem intervenção humana.',
+      rfidCaseTech: 'RFID | IoT | Integração com SAP | Automação de Estoque'
     },
     // ContactPage
     contact: {
@@ -210,7 +213,10 @@ const translations = {
       fiapCaseTech: 'AWS | Azure | Comparative Analysis | Case Study',
       formulaECaseTitle: 'Engaging Formula E Fans',
       formulaECaseDesc: 'Academic project developed at FIAP to solve Formula E fan engagement challenges. The solution is an interactive website as the championship central hub, with immersive videos, real-time standings, driver profiles, thematic quiz, race weather updates, and an event calendar with social interaction.',
-      formulaECaseTech: 'Software Engineering | UX/UI | Interactive Platform | Engagement Strategy'
+      formulaECaseTech: 'Software Engineering | UX/UI | Interactive Platform | Engagement Strategy',
+      rfidCaseTitle: 'Transforming Inventory Management with RFID Technology',
+      rfidCaseDesc: 'Academic project developed with the MADEV team to reduce errors and losses caused by manual inventory operations. The proposal uses passive RFID automation, real-time tracking through smart readers, and direct SAP integration without manual intervention.',
+      rfidCaseTech: 'RFID | IoT | SAP Integration | Inventory Automation'
     },
     // ContactPage
     contact: {
@@ -597,6 +603,15 @@ function ProjectsPage({ language }) {
       github: '/engajando-fas-formula-e.pdf',
       category: 'academic',
       image: '/engajando-fas-formula-e.pdf',
+      isPdf: true,
+    },
+    {
+      titleKey: 'rfidCaseTitle',
+      descKey: 'rfidCaseDesc',
+      techKey: 'rfidCaseTech',
+      github: '/revolucionando-visibilidade-estoque-rfid.pdf',
+      category: 'academic',
+      image: '/revolucionando-visibilidade-estoque-rfid.pdf',
       isPdf: true,
     }
   ];
