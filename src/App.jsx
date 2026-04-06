@@ -42,9 +42,11 @@ const translations = {
       awsCertTitle: 'AWS Certified Cloud Practitioner',
       awsStatus: 'Status: Preparação Reta Final',
       awsDesc: 'Estudando arquitetura, segurança e serviços core da nuvem AWS.',
+      awsCredentialBtn: 'Ver credencial',
       nambbuTitle: 'Infra as Code — Nambbu',
       nambbuStatus: 'Status: Em Produção',
-      nambbuDesc: 'Automação de infraestrutura e orquestração de recursos utilizando Python e Terraform.'
+      nambbuDesc: 'Automação de infraestrutura e orquestração de recursos utilizando Python e Terraform.',
+      nambbuCodeBtn: 'Ver código'
     },
     // AboutPage
     about: {
@@ -159,9 +161,11 @@ const translations = {
       awsCertTitle: 'AWS Certified Cloud Practitioner',
       awsStatus: 'Status: Final Stretch Preparation',
       awsDesc: 'Studying AWS cloud architecture, security, and core services.',
+      awsCredentialBtn: 'View credential',
       nambbuTitle: 'Infra as Code — Nambbu',
       nambbuStatus: 'Status: In Production',
-      nambbuDesc: 'Infrastructure automation and resource orchestration using Python and Terraform.'
+      nambbuDesc: 'Infrastructure automation and resource orchestration using Python and Terraform.',
+      nambbuCodeBtn: 'View code'
     },
     // AboutPage
     about: {
@@ -310,6 +314,9 @@ function PdfProjectCover({ file, title }) {
 
 function HomePage({ language }) {
   const t = translations[language];
+  const awsCredentialUrl = 'https://www.credly.com/';
+  const nambbuCodeUrl = 'https://github.com/enzoalmeiida';
+
   return (
     <section className="px-6 md:px-10 py-16 md:py-24">
       <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
@@ -360,9 +367,26 @@ function HomePage({ language }) {
           </div>
         </div>
 
-        <div className="terminal-box">
+        <div className="terminal-box flex flex-col items-center text-center">
+          <div className="w-52 h-52 md:w-64 md:h-64 rounded-full p-1 bg-gradient-to-br from-sky-500/60 to-emerald-500/40 shadow-[0_0_35px_rgba(88,166,255,0.28)]">
+            <img
+              src="/minha-foto.jpg"
+              alt="Foto de perfil"
+              onError={(e) => {
+                e.currentTarget.src = portfolioCover;
+              }}
+              className="w-full h-full rounded-full object-cover border border-subtle"
+            />
+          </div>
+
+          <p className="mt-5 text-xs text-faint max-w-xs">
+            Substitua <span className="mono text-cloud">/minha-foto.jpg</span> pela sua imagem quando quiser.
+          </p>
+        </div>
+
+        <div className="terminal-box md:col-span-2">
           <h2 className="text-xl font-semibold mb-6 text-glow">{t.home.highlights}</h2>
-          <div className="grid grid-cols-1 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="terminal-surface p-6">
               <div className="flex items-center gap-3 mb-3">
                 <FaAws size={24} className="text-cloud" />
@@ -370,6 +394,15 @@ function HomePage({ language }) {
               </div>
               <div className="text-sm text-online mb-2">{t.home.awsStatus}</div>
               <p className="text-sm text-muted">{t.home.awsDesc}</p>
+              <a
+                href={awsCredentialUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="terminal-btn terminal-btn--solid inline-flex items-center gap-2 mt-5"
+              >
+                <FaFilePdf size={14} />
+                {t.home.awsCredentialBtn}
+              </a>
             </div>
 
             <div className="terminal-surface p-6">
@@ -379,6 +412,15 @@ function HomePage({ language }) {
               </div>
               <div className="text-sm text-online mb-2">{t.home.nambbuStatus}</div>
               <p className="text-sm text-muted">{t.home.nambbuDesc}</p>
+              <a
+                href={nambbuCodeUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="terminal-btn inline-flex items-center gap-2 mt-5"
+              >
+                <FaGithub size={14} />
+                {t.home.nambbuCodeBtn}
+              </a>
             </div>
           </div>
         </div>
