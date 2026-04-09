@@ -4,7 +4,7 @@ import Typewriter from 'typewriter-effect';
 import * as pdfjsLib from 'pdfjs-dist';
 import pdfWorkerSrc from 'pdfjs-dist/build/pdf.worker.min.mjs?url';
 import portfolioCover from './assets/hero.png';
-import { FaGithub, FaLinkedin, FaAws, FaMicrosoft, FaCode, FaEnvelope, FaPython, FaJava, FaDatabase, FaReact, FaHtml5, FaCss3Alt, FaJs, FaLinux, FaGit, FaWindows, FaWhatsapp, FaServer, FaWordpress, FaLayerGroup, FaUsers, FaBuilding, FaShieldAlt, FaTachometerAlt, FaFilePdf } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaAws, FaMicrosoft, FaCode, FaEnvelope, FaPython, FaJava, FaDatabase, FaReact, FaHtml5, FaCss3Alt, FaJs, FaLinux, FaGit, FaWindows, FaWhatsapp, FaServer, FaWordpress, FaLayerGroup, FaUsers, FaBuilding, FaShieldAlt, FaTachometerAlt, FaFilePdf, FaExternalLinkAlt } from 'react-icons/fa';
 import { SiDocker, SiKubernetes, SiTerraform, SiAnsible, SiTailwindcss, SiElementor, SiZoho, SiFigma } from 'react-icons/si';
 import { VscTerminalBash } from 'react-icons/vsc';
 
@@ -40,8 +40,8 @@ const translations = {
       highlights: 'Destaques & Metas',
       highlightsCmd: 'cat destaques.txt',
       awsCertTitle: 'AWS Certified Cloud Practitioner',
-      awsStatus: 'Status: Preparação Reta Final',
-      awsDesc: 'Estudando arquitetura, segurança e serviços core da nuvem AWS.',
+      awsStatus: 'Status: Certificação conquistada',
+      awsDesc: 'Credencial oficial emitida para conhecimentos em arquitetura, segurança e serviços core da nuvem AWS.',
       awsCredentialBtn: 'Ver credencial',
       nambbuTitle: 'Infra as Code — Nambbu',
       nambbuStatus: 'Status: Em Produção',
@@ -79,6 +79,7 @@ const translations = {
       cmd: 'ls -la /projects',
       viewCode: 'Ver código',
       viewPresentation: 'Ver apresentação (PDF)',
+      viewSite: 'Ver site',
       personal: 'Pessoal',
       academic: 'Acadêmico',
       portfolioTitle: 'Portfolio CRT Terminal',
@@ -87,9 +88,9 @@ const translations = {
       nambbuTitle: 'Nambbu Automation',
       nambbuDesc: 'Scripts em Python para automação de infraestrutura, gestão de servidores críticos e monitoramento de ambientes cloud, alinhados à cultura DevOps.',
       nambbuTech: 'Python | Cloud | Terraform | Observability',
-      awsTitle: 'AWS Infrastructure as Code',
-      awsDesc: 'Templates Terraform para provisionamento automatizado de ambientes AWS com best practices de segurança e escalabilidade.',
-      awsTech: 'Terraform | AWS | CI/CD',
+      awsTitle: 'FIAP Status & SRE Mobile',
+      awsDesc: 'Aplicação acadêmica voltada para monitoramento de status e práticas de SRE em contexto mobile, com foco em confiabilidade e visibilidade operacional.',
+      awsTech: 'Mobile | SRE | Observability | Reliability',
       cicdTitle: 'DevOps Pipeline CI/CD',
       cicdDesc: 'Implementação completa de pipeline CI/CD utilizando GitHub Actions e containerização com Docker para deploy automatizado.',
       cicdTech: 'GitHub Actions | Docker | Linux',
@@ -159,8 +160,8 @@ const translations = {
       highlights: 'Highlights & Goals',
       highlightsCmd: 'cat highlights.txt',
       awsCertTitle: 'AWS Certified Cloud Practitioner',
-      awsStatus: 'Status: Final Stretch Preparation',
-      awsDesc: 'Studying AWS cloud architecture, security, and core services.',
+      awsStatus: 'Status: Certification earned',
+      awsDesc: 'Official credential issued for AWS cloud architecture, security, and core services knowledge.',
       awsCredentialBtn: 'View credential',
       nambbuTitle: 'Infra as Code — Nambbu',
       nambbuStatus: 'Status: In Production',
@@ -198,6 +199,7 @@ const translations = {
       cmd: 'ls -la /projects',
       viewCode: 'View code',
       viewPresentation: 'View presentation (PDF)',
+      viewSite: 'View site',
       personal: 'Personal',
       academic: 'Academic',
       portfolioTitle: 'Portfolio CRT Terminal',
@@ -206,9 +208,9 @@ const translations = {
       nambbuTitle: 'Nambbu Automation',
       nambbuDesc: 'Python automation for infrastructure, critical server operations, and cloud monitoring — aligned with DevOps culture.',
       nambbuTech: 'Python | Cloud | Terraform | Observability',
-      awsTitle: 'AWS Infrastructure as Code',
-      awsDesc: 'Terraform templates for automated AWS environment provisioning with security and scalability best practices.',
-      awsTech: 'Terraform | AWS | CI/CD',
+      awsTitle: 'FIAP Status & SRE Mobile',
+      awsDesc: 'Academic mobile project focused on status monitoring and SRE practices, emphasizing reliability and operational visibility.',
+      awsTech: 'Mobile | SRE | Observability | Reliability',
       cicdTitle: 'DevOps Pipeline CI/CD',
       cicdDesc: 'Complete CI/CD pipeline implementation using GitHub Actions and Docker containerization for automated deployment.',
       cicdTech: 'GitHub Actions | Docker | Linux',
@@ -314,7 +316,7 @@ function PdfProjectCover({ file, title }) {
 
 function HomePage({ language }) {
   const t = translations[language];
-  const awsCredentialUrl = 'https://www.credly.com/';
+  const awsCredentialUrl = 'https://www.credly.com/badges/f3ee557d-15b2-4fca-b4c7-814329a63006/linked_in_profile';
   const nambbuCodeUrl = 'https://github.com/enzoalmeiida';
 
   return (
@@ -379,9 +381,7 @@ function HomePage({ language }) {
             />
           </div>
 
-          <p className="mt-5 text-xs text-faint max-w-xs">
-            Substitua <span className="mono text-cloud">/minha-foto.jpg</span> pela sua imagem quando quiser.
-          </p>
+        
         </div>
 
         <div className="terminal-box md:col-span-2">
@@ -615,9 +615,9 @@ function ProjectsPage({ language }) {
       titleKey: 'awsTitle',
       descKey: 'awsDesc',
       techKey: 'awsTech',
-      github: 'https://github.com/enzoalmeiida',
+      github: 'https://github.com/enzoalmeiida/fiap-mdi-cp1-sre-mobile',
       category: 'personal',
-      image: 'https://via.placeholder.com/400x200/111111/4ade80?text=AWS+INFRASTRUCTURE',
+      image: 'https://via.placeholder.com/400x200/111111/4ade80?text=FIAP+STATUS+%26+SRE+MOBILE',
       isPdf: false,
     },
     {
@@ -643,6 +643,7 @@ function ProjectsPage({ language }) {
       descKey: 'formulaECaseDesc',
       techKey: 'formulaECaseTech',
       github: '/engajando-fas-formula-e.pdf',
+      liveUrl: 'https://formulaemadev.netlify.app/',
       category: 'academic',
       image: '/engajando-fas-formula-e.pdf',
       isPdf: true,
@@ -700,24 +701,38 @@ function ProjectsPage({ language }) {
                 <div className="text-xs mb-5 text-muted">
                   {t.projects[project.techKey]}
                 </div>
-                <a 
-                  href={project.github}
-                  target={project.isPdf ? "_blank" : "_blank"}
-                  rel="noreferrer"
-                  className="terminal-btn inline-flex items-center gap-2 text-sm"
-                >
-                  {project.isPdf ? (
-                    <>
-                      <FaFilePdf size={16} />
-                      {t.projects.viewPresentation}
-                    </>
-                  ) : (
-                    <>
-                      <FaGithub size={16} />
-                      {t.projects.viewCode}
-                    </>
-                  )}
-                </a>
+                <div className="flex flex-wrap gap-3">
+                  <a 
+                    href={project.github}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="terminal-btn inline-flex items-center gap-2 text-sm"
+                  >
+                    {project.isPdf ? (
+                      <>
+                        <FaFilePdf size={16} />
+                        {t.projects.viewPresentation}
+                      </>
+                    ) : (
+                      <>
+                        <FaGithub size={16} />
+                        {t.projects.viewCode}
+                      </>
+                    )}
+                  </a>
+
+                  {project.liveUrl ? (
+                    <a
+                      href={project.liveUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="terminal-btn terminal-btn--solid inline-flex items-center gap-2 text-sm"
+                    >
+                      <FaExternalLinkAlt size={14} />
+                      {t.projects.viewSite}
+                    </a>
+                  ) : null}
+                </div>
             </div>
           ))}
         </div>
