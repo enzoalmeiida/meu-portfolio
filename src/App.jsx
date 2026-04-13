@@ -43,10 +43,10 @@ const translations = {
       awsStatus: 'Status: Certificação conquistada',
       awsDesc: 'Credencial oficial emitida para conhecimentos em arquitetura, segurança e serviços core da nuvem AWS.',
       awsCredentialBtn: 'Ver credencial',
-      nambbuTitle: 'Infra as Code — Nambbu',
-      nambbuStatus: 'Status: Em Produção',
-      nambbuDesc: 'Automação de infraestrutura e orquestração de recursos utilizando Python e Terraform.',
-      nambbuCodeBtn: 'Ver código'
+      nambbuTitle: 'Ease CV',
+      nambbuStatus: 'Status: Em desenvolvimento ativo',
+      nambbuDesc: 'Projeto web para criação e organização de currículos com foco em simplicidade, produtividade e boa experiência de uso.',
+      nambbuCodeBtn: 'Ver repositório'
     },
     // AboutPage
     about: {
@@ -94,9 +94,9 @@ const translations = {
       awsTitle: 'FIAP Status & SRE Mobile',
       awsDesc: 'Aplicação acadêmica voltada para monitoramento de status e práticas de SRE em contexto mobile, com foco em confiabilidade e visibilidade operacional.',
       awsTech: 'Mobile | SRE | Observability | Reliability',
-      cicdTitle: 'DevOps Pipeline CI/CD',
-      cicdDesc: 'Implementação completa de pipeline CI/CD utilizando GitHub Actions e containerização com Docker para deploy automatizado.',
-      cicdTech: 'GitHub Actions | Docker | Linux',
+      easeCvTitle: 'Ease CV',
+      easeCvDesc: 'Projeto web para criacao e organizacao de curriculos com foco em simplicidade, produtividade e experiencia do usuario. Permite estruturar informacoes profissionais de forma clara e objetiva.',
+      easeCvTech: 'React | Front-end | UX/UI | Portfolio Tool',
       fiapCaseTitle: 'Estudo de Caso: Otimização de Infraestrutura em Nuvem',
       fiapCaseDesc: 'Pesquisa acadêmica realizada na FIAP sobre estratégias de otimização de infraestrutura em nuvem pública. Apresenta análise comparativa entre provedores e recomendações para empresas em transição digital.',
       fiapCaseTech: 'AWS | Azure | Análise Comparativa | Estudo de Caso',
@@ -166,10 +166,10 @@ const translations = {
       awsStatus: 'Status: Certification earned',
       awsDesc: 'Official credential issued for AWS cloud architecture, security, and core services knowledge.',
       awsCredentialBtn: 'View credential',
-      nambbuTitle: 'Infra as Code — Nambbu',
-      nambbuStatus: 'Status: In Production',
-      nambbuDesc: 'Infrastructure automation and resource orchestration using Python and Terraform.',
-      nambbuCodeBtn: 'View code'
+      nambbuTitle: 'Ease CV',
+      nambbuStatus: 'Status: Actively developed',
+      nambbuDesc: 'Web project for creating and organizing resumes with focus on simplicity, productivity, and a strong user experience.',
+      nambbuCodeBtn: 'View repository'
     },
     // AboutPage
     about: {
@@ -217,9 +217,9 @@ const translations = {
       awsTitle: 'FIAP Status & SRE Mobile',
       awsDesc: 'Academic mobile project focused on status monitoring and SRE practices, emphasizing reliability and operational visibility.',
       awsTech: 'Mobile | SRE | Observability | Reliability',
-      cicdTitle: 'DevOps Pipeline CI/CD',
-      cicdDesc: 'Complete CI/CD pipeline implementation using GitHub Actions and Docker containerization for automated deployment.',
-      cicdTech: 'GitHub Actions | Docker | Linux',
+      easeCvTitle: 'Ease CV',
+      easeCvDesc: 'Web project for creating and organizing resumes with focus on simplicity, productivity, and user experience. It helps structure professional information in a clear and objective format.',
+      easeCvTech: 'React | Front-end | UX/UI | Portfolio Tool',
       fiapCaseTitle: 'Case Study: Cloud Infrastructure Optimization',
       fiapCaseDesc: 'Academic research conducted at FIAP on cloud infrastructure optimization strategies. Presents comparative analysis between providers and recommendations for companies in digital transition.',
       fiapCaseTech: 'AWS | Azure | Comparative Analysis | Case Study',
@@ -323,7 +323,7 @@ function PdfProjectCover({ file, title }) {
 function HomePage({ language }) {
   const t = translations[language];
   const awsCredentialUrl = 'https://www.credly.com/badges/f3ee557d-15b2-4fca-b4c7-814329a63006/linked_in_profile';
-  const nambbuCodeUrl = 'https://github.com/enzoalmeiida';
+  const nambbuCodeUrl = 'https://github.com/enzoalmeiida/ease-cv';
 
   return (
     <section className="px-6 md:px-10 py-16 md:py-24">
@@ -605,7 +605,8 @@ function ProjectsPage({ language }) {
       techKey: 'portfolioTech',
       github: 'https://github.com/enzoalmeiida/meu-portfolio',
       category: 'personal',
-      image: portfolioCover,
+      image: '/img%20meu%20portfolio.png',
+      keepOriginalColors: true,
       isPdf: false,
     },
     {
@@ -615,7 +616,8 @@ function ProjectsPage({ language }) {
       github: 'https://github.com/enzoalmeiida/portfolio-antonio',
       liveUrl: 'https://portfolio-antonio.vercel.app/',
       category: 'personal',
-      image: 'https://via.placeholder.com/400x200/111111/4ade80?text=PORTFOLIO+ANTONIO',
+      image: '/img%20portifolio%20antonio.png',
+      keepOriginalColors: true,
       isPdf: false,
     },
     {
@@ -637,12 +639,12 @@ function ProjectsPage({ language }) {
       isPdf: false,
     },
     {
-      titleKey: 'cicdTitle',
-      descKey: 'cicdDesc',
-      techKey: 'cicdTech',
-      github: 'https://github.com/enzoalmeiida',
+      titleKey: 'easeCvTitle',
+      descKey: 'easeCvDesc',
+      techKey: 'easeCvTech',
+      github: 'https://github.com/enzoalmeiida/ease-cv',
       category: 'personal',
-      image: 'https://via.placeholder.com/400x200/111111/4ade80?text=CI%2FCD+PIPELINE',
+      image: 'https://via.placeholder.com/400x200/111111/4ade80?text=EASE+CV',
       isPdf: false,
     },
     {
@@ -693,7 +695,7 @@ function ProjectsPage({ language }) {
                   <img
                     src={project.image}
                     alt={t.projects[project.titleKey]}
-                    className="w-full h-48 object-cover border border-subtle grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-300 mb-4"
+                    className={`w-full h-48 object-cover border border-subtle transition-all duration-300 mb-4 ${project.keepOriginalColors ? 'opacity-100' : 'grayscale opacity-70 hover:grayscale-0 hover:opacity-100'}`}
                   />
                 ) : null}
 
