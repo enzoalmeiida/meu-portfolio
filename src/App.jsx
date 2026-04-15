@@ -132,7 +132,8 @@ const translations = {
       github: 'GitHub',
       linkedin: 'LinkedIn',
       email: 'E-mail',
-      whatsapp: 'WhatsApp'
+      whatsapp: 'WhatsApp',
+      footerCopyright: '© 2026 Enzo Almeida. Todos os direitos reservados.'
     }
   },
   en: {
@@ -255,7 +256,8 @@ const translations = {
       github: 'GitHub',
       linkedin: 'LinkedIn',
       email: 'Email',
-      whatsapp: 'WhatsApp'
+      whatsapp: 'WhatsApp',
+      footerCopyright: '© 2026 Enzo Almeida. All rights reserved.'
     }
   }
 };
@@ -1040,6 +1042,18 @@ function Navbar({ language, setLanguage }) {
   );
 }
 
+function Footer({ language }) {
+  const t = translations[language];
+
+  return (
+    <footer className="mt-10 border-t border-subtle bg-[rgba(13,17,23,0.55)]">
+      <div className="max-w-6xl mx-auto px-6 md:px-10 py-6 text-center text-sm text-faint">
+        {t.contact.footerCopyright}
+      </div>
+    </footer>
+  );
+}
+
 /* ===== MAIN APP ===== */
 
 function App() {
@@ -1054,6 +1068,8 @@ function App() {
           <Route path="/projetos" element={<ProjectsPage language={language} />} />
           <Route path="/contato" element={<ContactPage language={language} />} />
         </Routes>
+
+        <Footer language={language} />
       </div>
 
       <Navbar language={language} setLanguage={setLanguage} />
