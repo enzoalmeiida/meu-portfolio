@@ -598,6 +598,16 @@ function AboutPage({ language }) {
 
 function ProjectsPage({ language }) {
   const t = translations[language];
+  const [activeSlides, setActiveSlides] = React.useState({});
+
+  const getProjectImage = (project, idx) => {
+    if (project.images && project.images.length > 0) {
+      const slide = activeSlides[idx] ?? 0;
+      return project.images[slide] || project.images[0];
+    }
+    return project.image;
+  };
+
   const projects = [
     {
       titleKey: 'portfolioTitle',
@@ -636,6 +646,8 @@ function ProjectsPage({ language }) {
       github: 'https://github.com/enzoalmeiida/fiap-mdi-cp1-sre-mobile',
       category: 'personal',
       image: 'https://via.placeholder.com/400x200/111111/4ade80?text=FIAP+STATUS+%26+SRE+MOBILE',
+      images: ['/PrintUptime.jpeg', '/PrintIncidentes.jpeg', '/PrintDatacenter.jpeg', '/PrintAndares.jpeg'],
+      keepOriginalColors: true,
       isPdf: false,
     },
     {
@@ -644,7 +656,8 @@ function ProjectsPage({ language }) {
       techKey: 'easeCvTech',
       github: 'https://github.com/enzoalmeiida/ease-cv',
       category: 'personal',
-      image: 'https://via.placeholder.com/400x200/111111/4ade80?text=EASE+CV',
+      image: '/ease-cv.png',
+      keepOriginalColors: true,
       isPdf: false,
     },
     {
@@ -692,11 +705,36 @@ function ProjectsPage({ language }) {
                 {project.isPdf && project.github !== '#' ? (
                   <PdfProjectCover file={project.github} title={t.projects[project.titleKey]} />
                 ) : project.image ? (
-                  <img
-                    src={project.image}
-                    alt={t.projects[project.titleKey]}
-                    className={`w-full h-48 object-cover border border-subtle transition-all duration-300 mb-4 ${project.keepOriginalColors ? 'opacity-100' : 'grayscale opacity-70 hover:grayscale-0 hover:opacity-100'}`}
-                  />
+                  <div className="mb-4">
+                    <img
+                      src={getProjectImage(project, idx)}
+                      alt={t.projects[project.titleKey]}
+                      onError={(e) => {
+                        if (e.currentTarget.src !== project.image) {
+                          e.currentTarget.src = project.image;
+                        }
+                      }}
+                      className={`w-full h-48 object-cover border border-subtle transition-all duration-300 ${project.keepOriginalColors ? 'opacity-100' : 'grayscale opacity-70 hover:grayscale-0 hover:opacity-100'}`}
+                    />
+
+                    {project.images && project.images.length > 1 ? (
+                      <div className="mt-3 flex justify-center gap-2">
+                        {project.images.map((_, imageIdx) => (
+                          <button
+                            key={`${idx}-${imageIdx}`}
+                            type="button"
+                            onClick={() => setActiveSlides((prev) => ({ ...prev, [idx]: imageIdx }))}
+                            aria-label={`slide-${imageIdx + 1}`}
+                            className={`h-2.5 w-2.5 rounded-full border transition-colors ${
+                              (activeSlides[idx] ?? 0) === imageIdx
+                                ? 'bg-[var(--text-cyan)] border-[var(--text-cyan)]'
+                                : 'bg-transparent border-subtle'
+                            }`}
+                          />
+                        ))}
+                      </div>
+                    ) : null}
+                  </div>
                 ) : null}
 
                 <div className="text-sm mb-2">
